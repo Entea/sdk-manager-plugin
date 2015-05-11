@@ -52,6 +52,9 @@ class SdkResolver {
           throw new StopExecutionException(
               "Specified SDK directory '$sdkDirPath' in '$FN_LOCAL_PROPERTIES' is not found.")
         }
+        if (sdkDir.list().length == 0) {
+          downloadSdk sdkDir
+        }
         return sdkDir
       }
 
